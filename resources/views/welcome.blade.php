@@ -66,10 +66,6 @@
     <body>
         <div id="app">
             <welcome />
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         </div>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
