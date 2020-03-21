@@ -40,20 +40,20 @@
                         </div>
                        
                         <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Dein Geschlecht') }}</label>
+                            <label for="ogender" class="col-md-4 col-form-label text-md-right">{{ __('Dein Geschlecht') }}</label>
                             <div class="col-md-6">
-                                <input id="owngender" type="radio" name="gender1" value="0" {{old('owngender')}}> Mann<br>
-                                <input id="owngender" type="radio" name="gender1" value="1" {{old('owngender')}}> Frau<br> 
-                                <input id="owngender" type="radio" name="gender1" value="2" {{old('owngender')}}> Divers<br>             
+                                <input id="ogender" type="radio" name="ogender" value="M" > Mann<br>
+                                <input id="ogender" type="radio" name="ogender" value="F" > Frau<br> 
+                                <input id="ogender" type="radio" name="ogender" value="D" > Divers<br>             
                            </div>
                          </div>
 
                          <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Auf der Suche nach') }}</label>
+                            <label for="lgender" class="col-md-4 col-form-label text-md-right">{{ __('Auf der Suche nach') }}</label>
                             <div class="col-md-6">
-                                <input id="likedgender" type="radio" name="gender2" value="m" likedgender="m"> Männer<br>
-                                <input id="likedgender" type="radio" name="gender2" value="f" likedgender="f"> Frauen<br>
-                                <input id="likedgender" type="radio" name="gender2" value="d" likedgender="d"> Divers<br>              
+                                <input id="lgender" type="radio" name="lgender" value="M" > Männer<br>
+                                <input id="lgender" type="radio" name="lgender" value="F" > Frauen<br>
+                                <input id="lgender" type="radio" name="lgender" value="D" > Divers<br>              
                            </div>
                          </div>
 
