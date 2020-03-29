@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -12,9 +13,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Profile $profiles)
     {
-        return view('profil.overview');
+        return view('profile.overview', compact('profiles'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('profile.create');
     }
 
     /**
@@ -35,7 +36,24 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+             'alter' => 'required',
+            // 'user_id' => 'required|exists:users,id',
+             'beschreibung' => 'nullable',
+             'wohnort' => 'nullable',
+             'song' => 'nullable'
+        ]);
+       
+       
+       $data['user_id'] = Auth::user()->id;
+       $data['name'] = Auth::user()->name;
+       $data['ogender'] = Auth::user()->ogender;
+       $data['lgender'] = Auth::user()->lgender;
+       Profile::create($data);
+
+        $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
+        return redirect(route('profile.index'));
+        
     }
 
     /**
