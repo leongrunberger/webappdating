@@ -1943,10 +1943,6 @@ __webpack_require__.r(__webpack_exports__);
 
 //
 //
-//
-//
-//
-//
 
 /***/ }),
 
@@ -1959,25 +1955,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({});
@@ -1993,11 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -37431,7 +37403,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [_vm._v("\n    Footer\n")])
+  return _c("div")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37455,49 +37427,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("ul", { staticClass: "nav" }, [
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link active", attrs: { href: "#" } }, [
-              _vm._v("Active")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Link")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _vm._v("Link")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item" }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-link disabled",
-                attrs: { href: "#", tabindex: "-1", "aria-disabled": "true" }
-              },
-              [_vm._v("Disabled")]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37526,36 +37458,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "alert alert-primary", attrs: { role: "alert" } },
-        [
-          _vm._v(
-            "\n        Achtung! Diese App ist extrem nice. Ehefrauen hassen diese App.\n    "
-          )
-        ]
-      ),
-      _vm._v(" "),
+    return _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "jumbotron" }, [
           _c("h1", { staticClass: "display-4" }, [
-            _vm._v("Bootstrap Jumbotron")
+            _vm._v("Willkommen bei Flankr!")
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "lead" }, [_vm._v("Jetzt wird geswipet")]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "my-4" }),
-          _vm._v(" "),
-          _c("p", [_vm._v("Hallöchen")]),
+          _c("p", { staticClass: "lead" }, [
+            _vm._v("Flankr ist die beste Dating-App auf dem Markt.")
+          ]),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn-primary btn-lg",
-              attrs: { href: "#", role: "button" }
+              staticClass: "btn btn-primary",
+              attrs: { href: "/login", role: "button" }
             },
-            [_vm._v("Jetzt komplett abswipen")]
+            [_vm._v("Login")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { href: "/register", role: "button" }
+            },
+            [_vm._v("Registrieren")]
           )
         ])
       ])
@@ -50105,8 +50034,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\testweb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\testweb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/marius/Desktop/webappdating/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/marius/Desktop/webappdating/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
