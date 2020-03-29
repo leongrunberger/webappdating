@@ -22,3 +22,7 @@ Route::get('/start', 'StartController@index')->name('start.index');
 Route::get('/profil', 'ProfilController@index')->name('profil.index');
 
 Route::get('/chat', 'ChatController@index')->name('chat.index');
+
+Route::resources([
+    'profile' => 'ProfileController'
+]);
