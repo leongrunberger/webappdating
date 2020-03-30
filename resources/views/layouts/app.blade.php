@@ -49,15 +49,9 @@
                                 </li>
                             @endif
                         @else
-<<<<<<< HEAD
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}<span class="caret"></span>
-=======
-                            <li class="nav-item dropdown flankr-grey-20-bg">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle flankr-grey-70" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}({{ Auth::user()->roles()->first()->description }})<span class="caret"></span>
->>>>>>> master
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right flankr-grey-20-bg" aria-labelledby="navbarDropdown">
