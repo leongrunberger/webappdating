@@ -59,4 +59,8 @@ class User extends Authenticatable
 
         return null !== $this->roles()->where('name', $roles)->first();
     }
+
+    public function profiles(){
+        return $this->hasMany(Profile::class);
+    }
 }

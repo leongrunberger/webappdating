@@ -67,6 +67,11 @@ class ProfileController extends Controller
         //
     }
 
+    public function delete(Profile $profile){
+
+        return view('profile.delete', compact('profile'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -75,7 +80,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        //
+        return view('profile.edit', compact('profile'));
     }
 
     /**
@@ -85,9 +90,20 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Profile $profile)
     {
-        //
+       $data = $this->validate(request(), [
+        'alter' => 'required',
+        // 'user_id' => 'required|exists:users,id',
+         'beschreibung' => 'nullable',
+         'wohnort' => 'nullable',
+         'song' => 'nullable'
+
+       ]); 
+
+       $profile->update(request()->except('_token'));
+       session()->flash('message', 'Profil erfolgreich bearbeitet');
+       return redirect(route('profile.index'));
     }
 
     /**
@@ -98,6 +114,10 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+        
+        $profile->delete();
+        
+        session()->flash('message', 'Profil erfolgreich gelöscht');
+        return redirect(route('profile.index'));  
     }
 }

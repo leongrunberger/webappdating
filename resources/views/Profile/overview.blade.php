@@ -26,21 +26,67 @@
                   </div>
               @endif
               
-              <table class="table table-bordered table-striped">
-                    @foreach ($profiles->all() as $profiles)
-                        <tr>
-                            <td>{{$profiles->user_id}}</td>
-                            <td>{{$profiles->name}}</td>
-                            <td>{{$profiles->alter}}</td>
-                            <td>{{$profiles->wohnort}}</td>
-                            <td>{{$profiles->beschreibung}}</td>
-                        </tr>
-                    @endforeach
-              </table>  
+              @foreach ($profiles->all() as $profiles)
+                    
+              @if($profiles->user_id == Auth::user()->id)   
+              
+              <div class="card-header">Name</div>
 
-              <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Profil bearbeiten</a>
+              <div class="card-body">
+                  
+                  {{$profiles->user->name}}
+
+              </div>
+                  
               
 
+              <div class="card-header">Alter</div>
+
+              <div class="card-body">
+
+                {{$profiles->alter}} 
+
+              </div>
+
+              <div class="card-header">Beschreibung</div>
+
+              <div class="card-body">
+
+                {{$profiles->beschreibung}} 
+
+              </div>
+
+              <div class="card-header">Wohnort</div>
+
+              <div class="card-body">
+
+                {{$profiles->wohnort}} 
+                   
+              </div>
+
+              <div class="card-header">Lieblingssong</div>
+
+              <div class="card-body">
+
+                {{$profiles->song}} 
+                   
+              </div>
+                  
+              <a class="btn btn-primary" href="{{route('profile.edit', $profiles->id)}}" role="button">Profil bearbeiten</a>
+              <a class="btn btn-danger" href="{{route('profile.delete', $profiles->id)}}" role="button">Profil löschen</a>
+              @break
+              @endif
+              @endforeach
+
+             @foreach ($profiles->all() as $profiles)
+                    
+              @if($profiles->user_id != Auth::user()->id)   
+              <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Erstelle dein Profil</a>
+              @break
+             @endif
+             @endforeach 
+             
+             
                 </div>  
                
             </div>
