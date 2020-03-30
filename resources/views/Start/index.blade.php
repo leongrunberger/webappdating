@@ -7,10 +7,10 @@
             <h1>Deine Beute</h1>
             @if(count($profiles) > 1)
                
-            @if(Auth::user()->ogender == 'F')
+            @if(Auth::user()->lgender == 'M')
             @foreach($profiles as $profile)
             @if($profile->ogender =='M')
-
+                @if($profile->user_id != Auth::user()->id)
                     <div class="card mt-4 flankr-profile-card">
                         <div class="card-body text-center">
 
@@ -43,14 +43,15 @@
 
                         </div>
                     </div>
+                   @endif
                     @endif
                 @endforeach
                     @endif
 
-                    @if(Auth::user()->ogender == 'M')
+                    @if(Auth::user()->lgender == 'F')
             @foreach($profiles as $profile)
             @if($profile->ogender =='F')
-
+            @if($profile->user_id != Auth::user()->id)
                     <div class="card mt-4 flankr-profile-card">
                         <div class="card-body text-center">
 
@@ -83,6 +84,7 @@
 
                         </div>
                     </div>
+                    @endif
                     @endif
                 @endforeach
                     @endif
@@ -90,7 +92,7 @@
                     @if(Auth::user()->ogender == 'D')
                     @foreach($profiles as $profile)
                     @if($profile->ogender =='D')
-        
+                    @if($profile->user_id != Auth::user()->id)
                             <div class="card mt-4 flankr-profile-card">
                                 <div class="card-body text-center">
         
@@ -123,6 +125,7 @@
         
                                 </div>
                             </div>
+                           @endif
                             @endif
                         @endforeach
                             @endif
