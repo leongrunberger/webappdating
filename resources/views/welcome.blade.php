@@ -70,28 +70,49 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            
 
-
-            
             <div class="container">                
                 <div class="row justify-content-center">
                     <img src="flankr-logo.svg" class="flankr-logo-start" alt="logo"/>     
                 </div>           
 
-                <div class="row justify-content-center">
-                    <h1>Willkommen bei Flankr!</h1>
-                </div>
+                @guest
 
-                <div class="row justify-content-center">
-                    <p>Flankr ist die beste Dating-App auf dem Markt.</p>
-                </div>
+                    <div class="row justify-content-center">
+                        <h1>Willkommen bei Flankr!</h1>
+                    </div>
 
-                <div class="row justify-content-center mt-5">
-                    <a class="btn btn-light flankr-button" href="/login">Login</a>
-                    <a class="btn btn-light flankr-button ml-3" href="/register">Registrieren</a>
-                </div>
+                    <div class="row justify-content-center">
+                        <p>Flankr ist die beste Dating-App auf dem Markt.</p>
+                    </div>
+
+                    <div class="row justify-content-center mt-5">
+                        <a class="btn btn-light flankr-button" href="/login">Login</a>
+                        <a class="btn btn-light flankr-button ml-3" href="/register">Registrieren</a>
+                    </div>
+
+                @else
+
+                    <div class="row justify-content-center">
+
+                    <!--- Willkommen zurück mit Username wäre natürlich nice. ---->
+
+                    <h1>Willkommen zurück!</h1>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <p>Singles in deiner Umgebung warten auf dich.</p>
+                    </div>
+
+                    <div class="row justify-content-center mt-5">
+                        <a class="btn btn-light flankr-button" href="/start">Start</a>
+                        <a class="btn btn-light flankr-button ml-3" href="/profile">Dein Profil</a>
+                    </div>
+
+                @endguest
+
             </div>
+
 
 
 

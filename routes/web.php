@@ -28,10 +28,6 @@ Route::resources([
 
 ]);
 
-// PK - added 29.03.20
-Route::get('/match', 'UsersController@index')->name('user.index');
 
-// PK - added 29.03.20
-Route::resource('users', 'UsersController');
 
 Route::get('/profile/delete/{profile}', 'ProfileController@delete')->name('profile.delete');
