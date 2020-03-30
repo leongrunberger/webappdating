@@ -4,20 +4,48 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            <h1>Nutzer</h1>
+            @if(count($users) > 1)
+                @foreach($users as $user)
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+
+                    <div class="card mt-2 flankr-profile-card">
+                        <div class="card-body">
+
+                            <div class="flankr-profile-card-img">img</div>
+
+                            <!-- avatar
+                            <img src="{{ asset($user->avatar) }}" alt="" />
+                            -->
+                            
+                            <h4 class="mt-2">
+                                {{$user->name}}
+                            </h4>
+                            <p>
+                                <small>Alter: {{$user->date}}</small><br>
+                            </p>
+
+                            
+                            <button>
+                                Dislike
+                            </button>
+                            <button>
+                                Like
+                            </button>
+
                         </div>
-                    @endif
+                    </div>
 
-                    You are logged in!
-                </div>
-            </div>
+                @endforeach
+
+                @else
+                    <p>No Users found</p>
+                @endif
+
         </div>
     </div>
 </div>
+
+
+
 @endsection

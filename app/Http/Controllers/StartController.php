@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class StartController extends Controller
 {
@@ -26,6 +27,9 @@ class StartController extends Controller
     {
         //$user = Auth::user();
         //$user->authorizeRoles(['admin']);
-        return view('Start.index');
+        $users = User::all();
+        return view('Start.index')->with('users', $users);
     }
+
+
 }

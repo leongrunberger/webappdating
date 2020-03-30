@@ -10884,3 +10884,14 @@ a.text-dark:focus {
   }
 }
 
+.flankr-profile-card {
+  height: 80vh;
+}
+
+.flankr-profile-card-img {
+  display: inline-block;
+  width: 100%;
+  background-color: red;
+  height: 300px;
+}
+

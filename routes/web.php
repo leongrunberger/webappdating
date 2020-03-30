@@ -25,4 +25,11 @@ Route::get('/chat', 'ChatController@index')->name('chat.index');
 
 Route::resources([
     'profile' => 'ProfileController'
+
 ]);
+
+// PK - added 29.03.20
+Route::get('/match', 'UsersController@index')->name('user.index');
+
+// PK - added 29.03.20
+Route::resource('users', 'UsersController');
