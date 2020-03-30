@@ -10885,19 +10885,50 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #222 !important;
+  background-color: #121212 !important;
+  color: #bababa !important;
+}
+
+.flankr-bg {
+  background-color: #0a0a0a !important;
+  color: #bababa !important;
 }
 
 .flankr-profile-card {
   height: 80vh;
   background-color: #0a0a0a;
   color: #bababa;
+  box-shadow: 0 0 8px #0a0a0a;
 }
 
 .flankr-profile-card-img {
   display: inline-block;
   width: 100%;
-  background-color: red;
+  background-color: #555;
   height: 400px;
+}
+
+.flankr-button {
+  background-color: #0000;
+  color: #bababa;
+  border: solid 2px #e627a3;
+  box-shadow: 0 0 8px #e627a3, inset 0px 0px 8px #e627a3;
+  width: 45%;
+}
+
+.flankr-button:hover {
+  border: solid 2px #ff61c8;
+  box-shadow: 0 0 10px #ff61c8, inset 0px 0px 10px #ff61c8;
+  background-color: #0000;
+  color: #bababa;
+  transition: 0.3s;
+}
+
+.flankr-grey-70 {
+  color: #bababa !important;
+}
+
+.flankr-grey-20-bg {
+  background-color: #0a0a0a !important;
 }
 

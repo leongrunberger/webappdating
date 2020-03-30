@@ -1,8 +1,17 @@
 // PK - added 29.03.20
 
+//
+// Overwrite Bootstrap and other styles
+//
 
 body {
-    background-color: #222 !important;
+    background-color: $grey-25 !important;
+    color: $grey-70 !important;
+}
+
+.flankr-bg {
+    background-color: $grey-20 !important;
+    color: $grey-70 !important;
 }
 
 
@@ -14,6 +23,8 @@ body {
     height: 80vh;
     background-color: $grey-20;
     color: $grey-70;
+    box-shadow: 0 0 8px $grey-20;
+    
 }
 
 .flankr-profile-card-img {
@@ -21,7 +32,7 @@ body {
     width: 100%;
 
     // platzhalter-styles
-    background-color: red;
+    background-color: #555;
     height: 400px;
 }
 
@@ -29,4 +40,46 @@ body {
 //
 // Buttons
 //
+
+.flankr-button {
+    background-color: #0000;
+    color: $grey-70;
+    border: solid 2px $flankr-primary;
+    box-shadow: 0 0 8px $flankr-primary, inset 0px 0px 8px $flankr-primary;
+    width: 45%;
+} 
+
+.flankr-button:hover {
+    border: solid 2px $flankr-primary-bright;
+    box-shadow: 0 0 10px $flankr-primary-bright, inset 0px 0px 10px $flankr-primary-bright;
+    background-color:  #0000;
+    color: $grey-70;
+    transition: .3s;
+}
+
+
+//
+// Custom elements
+//
+
+.flankr-logo-start {
+}
+
+
+//
+// Color
+//
+
+.flankr-grey-70 {
+    color: $grey-70 !important;
+}
+
+
+//
+// BG-Color
+//
+
+.flankr-grey-20-bg {
+    background-color: $grey-20 !important;
+}
 

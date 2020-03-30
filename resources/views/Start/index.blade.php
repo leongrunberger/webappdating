@@ -9,8 +9,8 @@
                 @foreach($users as $user)
 
 
-                    <div class="card mt-2 flankr-profile-card">
-                        <div class="card-body">
+                    <div class="card mt-4 flankr-profile-card">
+                        <div class="card-body text-center">
 
                             <div class="flankr-profile-card-img">img</div>
 
@@ -25,9 +25,10 @@
                                 <small>Alter: {{$user->date}}</small><br>
                             </p>
 
-                            <button type="button" class="btn btn-light">Dislike</button>
-                            
-                            <button type="button" class="btn btn-light">Like</button>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-light flankr-button">Dislike</button>
+                                <button type="button" class="btn btn-light flankr-button ml-2">Like</button>
+                            </div>
 
                         </div>
                     </div>
