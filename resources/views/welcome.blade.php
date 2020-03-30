@@ -3,20 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
         <title>Willkommen bei Flankr!</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
 
         <!-- Styles -->
         <style>
             html, body {
-                color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-color: $grey-20;
             }
 
             .full-height {
@@ -60,7 +62,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
         </style>
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -78,11 +84,37 @@
                 </div>
             @endif
 
+
+            
+            <div class="container">                
+                <div class="row justify-content-center">
+                    <img src="flankr-logo.svg" class="flankr-logo-start" alt="logo"/>     
+                </div>           
+
+                <div class="row justify-content-center">
+                    <h1>Willkommen bei Flankr!</h1>
+                </div>
+
+                <div class="row justify-content-center">
+                    <p>Flankr ist die beste Dating-App auf dem Markt.</p>
+                </div>
+
+                <div class="row justify-content-center mt-5">
+                    <a class="btn btn-light flankr-button" href="/login">Login</a>
+                    <a class="btn btn-light flankr-button ml-3" href="/register">Registrieren</a>
+                </div>
+            </div>
+
+
+
+            <!-- PK killed vue
+
                 <div id="app">
                     <app />
                 </div>
-
                 <script type="text/javascript" src="js/app.js"></script>
+
+            -->
 
         </div>
     </body>
