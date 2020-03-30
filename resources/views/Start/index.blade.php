@@ -25,13 +25,9 @@
                                 <small>Alter: {{$user->date}}</small><br>
                             </p>
 
+                            <button type="button" class="btn btn-light">Dislike</button>
                             
-                            <button>
-                                Dislike
-                            </button>
-                            <button>
-                                Like
-                            </button>
+                            <button type="button" class="btn btn-light">Like</button>
 
                         </div>
                     </div>

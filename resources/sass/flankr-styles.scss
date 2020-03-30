@@ -1,17 +1,32 @@
+// PK - added 29.03.20
+
+
+body {
+    background-color: #222 !important;
+}
+
+
+//
 // Profile Cards
+//
 
 .flankr-profile-card {
     height: 80vh;
-
+    background-color: $grey-20;
+    color: $grey-70;
 }
 
 .flankr-profile-card-img {
     display: inline-block;
     width: 100%;
-    
+
     // platzhalter-styles
     background-color: red;
-    height: 300px;
+    height: 400px;
 }
 
+
+//
+// Buttons
+//
 
