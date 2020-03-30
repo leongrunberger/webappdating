@@ -50,6 +50,36 @@
                             </div>
                         </div>
                     </li>
+
+                    <li class="users">
+                        <span class="pending">1</span>
+
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="https://via.placeholder.com/150" alt="" class="media-object">
+                            </div>
+                            
+                            <div class="media-body">
+                                <p class="name">Johne Doe</p>
+                                <p class ="email">john@gmail.com</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="users">
+                        <span class="pending"1></span>
+
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="https://via.placeholder.com/150" alt="" class="media-object">
+                            </div>
+                            
+                            <div class="media-body">
+                                <p class="name">Johne Doe</p>
+                                <p class ="email">john@gmail.com</p>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

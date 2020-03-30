@@ -18,6 +18,49 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Style Chat -->
+    <style>
+        .user-wrapper, .message-wrapper {
+            border: 1px solid #dddddd;
+            overflow-y: auto;
+        }
+
+        .user-wrapper {
+            height: 600px;
+        }
+
+        .user {
+            cursor: pointer;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .user:hover {
+            background: #eeeeee;
+        }
+
+        .user:last-child {
+            margin-bottom: 0;
+        }
+
+       .pending {
+           position: absolute;
+           left: 13px;
+           
+           background:#b600ff;
+           margin: 0;
+           border-radius: 50%;
+           width: 18px;
+           height: 18px;
+           padding-left: 5px;
+           color:  #ffffff;
+           font-size: 12px; 
+
+       }
+     
+    </style>
+
 </head>
 <body>
     <div id="app">
@@ -51,7 +94,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}({{ Auth::user()->roles()->first()->description }})<span class="caret"></span>
+                                    {{ Auth::user()->name }})<span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right flankr-grey-20-bg" aria-labelledby="navbarDropdown">
