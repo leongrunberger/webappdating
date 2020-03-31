@@ -14,9 +14,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Profile $profiles)
+    public function index(User $user)
     {
-        return view('profile.overview', compact('profiles'));
+        return view('profile.overview', compact('user'));
     }
 
     /**
@@ -79,9 +79,9 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit(User $user)
     {
-        return view('profile.edit', compact('profile'));
+        return view('profile.edit', compact('user'));
     }
 
     /**
@@ -91,18 +91,18 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Profile $profile)
+    public function update(User $user)
     {
        $data = $this->validate(request(), [
-        'alter' => 'required',
-        // 'user_id' => 'required|exists:users,id',
+        
+        
          'beschreibung' => 'nullable',
          'wohnort' => 'nullable',
          'song' => 'nullable'
 
        ]); 
 
-       $profile->update(request()->except('_token'));
+       $user->update(request()->except('_token'));
        session()->flash('message', 'Profil erfolgreich bearbeitet');
        return redirect(route('profile.index'));
     }

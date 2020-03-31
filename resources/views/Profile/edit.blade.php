@@ -25,29 +25,23 @@
                         </div>
                     @endif
 
-                    <form action="{{route('profile.update', $profile->id)}}" method="post">
+                    <form action="{{route('profile.update', $user->id)}}" method="post">
                        @csrf 
 
                        @method('PUT')
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Alter*</label>
-                            <input type="text" class="form-control{{$errors->has('alter') ? ' is-invalid' : ''}}" id="alter" name="alter" value="{{old('alter') ?? $profile->alter ?? ''}}" placeholder="Wie alt bist du?">
-                          </div>
+
 
                         <div class="form-group">
                           <label for="exampleInputEmail1">Beschreibung</label>
-                          <textarea type="text" class="form-control{{$errors->has('beschreibung') ? ' is-invalid' : ''}}" id="beschreibung" name="beschreibung" rows="4" placeholder="Erzähl was über dich">{{old('beschreibung') ?? $profile->beschreibung ?? ''}}</textarea>
+                          <textarea type="text" class="form-control{{$errors->has('beschreibung') ? ' is-invalid' : ''}}" id="beschreibung" name="beschreibung" rows="4" placeholder="Erzähl was über dich">{{old('beschreibung') ?? $user->beschreibung ?? ''}}</textarea>
                           
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Wohnort</label>
-                          <input type="text" class="form-control{{$errors->has('wohnort') ? ' is-invalid' : ''}}" id="wohnort" name="wohnort" value="{{old('wohnort') ?? $profile->wohnort ?? ''}}" placeholder="Wo kommst du her?">
+                          <input type="text" class="form-control{{$errors->has('wohnort') ? ' is-invalid' : ''}}" id="wohnort" name="wohnort" value="{{old('wohnort') ?? $user->wohnort ?? ''}}" placeholder="Wo kommst du her?">
                         </div>
 
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Lieblingssong</label>
-                            <input type="text" class="form-control{{$errors->has('song') ? ' is-invalid' : ''}}" id="song" name="song" value="{{old('song') ?? $profile->song ?? ''}}" placeholder="Was hörst du gerade?">
-                          </div>
+
 
                         <button type="submit" class="btn btn-primary">Profil speichern</button>
                       </form>

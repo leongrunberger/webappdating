@@ -26,25 +26,25 @@
                   </div>
               @endif
               
-              @foreach ($profiles->all() as $profiles)
+              @foreach ($user->all() as $user)
                     
-              @if($profiles->user_id == Auth::user()->id)   
+              @if($user->id == Auth::user()->id)   
               
               <div class="card-header">Name</div>
 
               <div class="card-body">
                   
-                  {{$profiles->user->name}}
+                  {{$user->name}}
 
               </div>
                   
               
 
-              <div class="card-header">Alter</div>
+              <div class="card-header">Geburtstag</div>
 
               <div class="card-body">
 
-                {{$profiles->alter}} 
+                {{$user->date}} 
 
               </div>
 
@@ -52,7 +52,7 @@
 
               <div class="card-body">
 
-                {{$profiles->beschreibung}} 
+                {{$user->beschreibung}} 
 
               </div>
 
@@ -60,36 +60,20 @@
 
               <div class="card-body">
 
-                {{$profiles->wohnort}} 
+                {{$user->wohnort}} 
                    
               </div>
 
-              <div class="card-header">Lieblingssong</div>
 
-              <div class="card-body">
-
-                {{$profiles->song}} 
-                   
-              </div>
                   
-              <a class="btn btn-primary" href="{{route('profile.edit', $profiles->id)}}" role="button">Profil bearbeiten</a>
-              <a class="btn btn-danger" href="{{route('profile.delete', $profiles->id)}}" role="button">Profil löschen</a>
+              <a class="btn btn-primary" href="{{route('profile.edit', $user->id)}}" role="button">Profil bearbeiten</a>
+              <a class="btn btn-danger" href="{{route('profile.delete', $user->id)}}" role="button">Profil löschen</a>
               @break
               @endif
               @endforeach
             
               
-              <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Erstelle dein Profil</a>
-            
 
-             @foreach ($profiles->all() as $profiles)
-               @if($profiles->user_id != Auth::user()->id)   
-              <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Erstelle dein Profil</a>
-              @break
-             @endif
-             @endforeach 
-             
-             
                 </div>  
                
             </div>
