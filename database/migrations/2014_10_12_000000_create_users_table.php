@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
             $table->date('date');
             $table->string('ogender');
             $table->string('lgender');
-            $table->string('avatar')->default('default.jpg');
+            $table->string('wohnort')->nullable();
+            $table->text('beschreibung')->nullable();;
             $table->rememberToken();
             $table->timestamps();
         });

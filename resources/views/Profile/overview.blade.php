@@ -77,10 +77,13 @@
               @break
               @endif
               @endforeach
+            
+              
+              <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Erstelle dein Profil</a>
+            
 
              @foreach ($profiles->all() as $profiles)
-                    
-              @if($profiles->user_id != Auth::user()->id)   
+               @if($profiles->user_id != Auth::user()->id)   
               <a class="btn btn-primary" href="{{route('profile.create')}}" role="button">Erstelle dein Profil</a>
               @break
              @endif
