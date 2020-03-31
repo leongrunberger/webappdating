@@ -97,7 +97,7 @@
 
                     <!--- Willkommen zurück mit Username wäre natürlich nice. ---->
 
-                    <h1>Willkommen zurück!</h1>
+                    <h1>Willkommen zurück, {{ Auth::user()->name }}!</h1>
                     </div>
 
                     <div class="row justify-content-center">

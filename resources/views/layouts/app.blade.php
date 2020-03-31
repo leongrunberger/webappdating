@@ -21,22 +21,22 @@
 
     <!-- Style Chat -->
     <style>
-
         ul {
             margin: 0;
             padding: 0;
         }
 
         li {
-            list-style: none; 
+            list-style: none;
         }
+
         .user-wrapper, .message-wrapper {
             border: 1px solid #dddddd;
             overflow-y: auto;
         }
 
         .user-wrapper {
-            height: 600px;
+            height: 536px;
         }
 
         .user {
@@ -53,87 +53,92 @@
             margin-bottom: 0;
         }
 
-       .pending {
-           position: absolute;  
-           background:#b600ff;
-           margin: 0;
-           border-radius: 50%;
-           width: 18px;
-           height: 18px;
-           padding-left: 5px;
-           color:  #ffffff;
-           font-size: 12px; 
-       }
+        .pending {
+            left: 13px;
+            top: 9px;
+            background: #b600ff;
+            margin: 0;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            padding-left: 5px;
+            color: #ffffff;
+            font-size: 12px;
+        }
 
-       .media-left {
-           margin: 0 10px;
-       }
+        .media-left {
+            margin: 0 10px;
+        }
 
-       .media-left img {
-           width: 64px;
-           border-radius: 64px;
-       }
+        .media-left img {
+            width: 64px;
+            border-radius: 64px;
+        }
 
-       .media-body p {
-           padding: 6px 0; 
-       }
-     
-       .message-wrapper {
-           padding: 10px;
-           height: 536px;
-           background: #eeeeee;
-       }
+        .media-body p {
+            margin: 6px 0;
+        }
 
-       .messages .message {
-           margin-bottom: 15px;
-       }
+        .message-wrapper {
+            padding: 10px;
+            height: 536px;
+            background: #eeeeee;
+        }
 
-       .messages .message:last-child {
-           margin-bottom: 0;
-       }
+        .messages .message {
+            margin-bottom: 15px;
+        }
 
-       .received, sent {
-           width: 45%;
-           padding: 3px 10px;
-           border-radius: 10px;
-       }
+        .messages .message:last-child {
+            margin-bottom: 0;
+        }
 
-       .received {
-           background: #ffffff;
-       }
+        .received, .sent {
+            width: 45%
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
 
-       .sent {
-           background: #3bebff;
-           float: right;
-           text-align: right;
-       }
+        .received {
+            background: #ffffff;
+        }
 
-       .message p {
-           margin: 5px 0;
-       }
+        .sent {
+            background: #3bebff;
+            float: right;
+            text-align: right;
+        }
 
-       .date {
-           color: #777777;
-           font-size: 12px;
-       }
+        .message p {
+            margin: 5px 0;
+        }
 
-       .active {
-           background: #eeeeee;
-       }
+        .date {
+            color: #777777;
+            font-size: 12px;
+        }
 
-       input [type=text] {
-           width: 100%;
-           padding: 12px 20px;
-           margin: 15px 0 0 0;
-           display: inline-block;
-           border-radius: 4px;
-           box-sizing: border-box;
-           outline: none;
-           border: 1px solid #cccccc;
-       }
-       input [type=text]:focus {
-           border: 1px solid #aaaaaa;
-       }
+        .active {
+            background: #eeeeee;
+        }
+         
+        input [type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 15px 0 0 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
+
+        input [type=text]:focus {
+            border: 1px solid #aaaaaa;
+        }
+        
+        
     </style>
 
 </head>
