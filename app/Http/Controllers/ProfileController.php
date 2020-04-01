@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Traits\UploadTrait;
 
 class ProfileController extends Controller
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -50,13 +53,14 @@ class ProfileController extends Controller
              
         ]);
        
-       $data['erstellt'] = $profile->erstellt + '1';
-       $data['user_id'] = Auth::user()->id;
        
+       $data['user_id'] = Auth::user()->id;
        $data['name'] = Auth::user()->name;
        $data['ogender'] = Auth::user()->ogender;
        $data['lgender'] = Auth::user()->lgender;
        Profile::create($data);
+      
+       
 
         $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
         return redirect(route('profile.index'));
@@ -100,16 +104,38 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Profile $profile)
+    public function update(Profile $profile, Request $request)
     {
        $data = $this->validate(request(), [
         
          'alter' =>'required',
          'beschreibung' => 'nullable',
          'wohnort' => 'nullable',
-         'song' => 'nullable'
+         'song' => 'nullable',
+         'profile_image' =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
 
        ]); 
+
+       $profile = Profile::findOrFail($profile->id);
+       
+
+        // Check if a profile image has been uploaded
+        if ($request->has('profile_image')) {
+            // Get image file
+            $image = $request->file('profile_image');
+            // Make a image name based on user name and current timestamp
+            $name = $name = Str::slug($request->input(Auth::user()->name)).'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+            $profile->profile_image = $filePath;
+        }
+        // Persist user record to database
+        $profile->save();
 
        $profile->update(request()->except('_token'));
        session()->flash('message', 'Profil erfolgreich bearbeitet');
@@ -129,5 +155,40 @@ class ProfileController extends Controller
         
         session()->flash('message', 'Profil erfolgreich gelöscht');
         return redirect(route('profile.index'));  
+    }
+
+    public function updateProfile(Request $request)
+    {
+        // Form validation
+        $request->validate([
+            'name'              =>  'required',
+            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        // Get current user
+        $user = User::findOrFail(auth()->user()->id);
+        // Set user name
+        $user->name = $request->input('name');
+
+        // Check if a profile image has been uploaded
+        if ($request->has('profile_image')) {
+            // Get image file
+            $image = $request->file('profile_image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+            $user->profile_image = $filePath;
+        }
+        // Persist user record to database
+        $user->save();
+
+        // Return user back and show a flash message
+        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 }

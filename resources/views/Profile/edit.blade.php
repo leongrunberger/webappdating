@@ -25,7 +25,7 @@
                         </div>
                     @endif
 
-                    <form action="{{route('profile.update', $profile->id)}}" method="post">
+                    <form action="{{route('profile.update', $profile->id)}}" method="post" enctype="multipart/form-data">
                        @csrf 
 
                        @method('PUT')
@@ -50,6 +50,16 @@
                             <label for="exampleInputPassword1">Lieblingssong</label>
                             <input type="text" class="form-control{{$errors->has('song') ? ' is-invalid' : ''}}" id="song" name="song" value="{{old('song') ?? $profile->song ?? ''}}" placeholder="Wo hörst du gerade?">
                           </div>
+
+                          <div class="form-group row">
+                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">Profile Image</label>
+                            <div class="col-md-6">
+                                <input id="profile_image" type="file" class="form-control" name="profile_image">
+                                @if (auth()->user()->image)
+                                    <code>{{ auth()->user()->image }}</code>
+                                @endif
+                            </div>
+                        </div>
                         
                           <div class ="text-center">
                             <button type="submit" class="btn btn-light flankr-button">Profil bearbeiten</button>

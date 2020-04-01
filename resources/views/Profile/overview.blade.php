@@ -38,6 +38,7 @@
               <div class="card-body">
                   
                   {{$profile->name}}
+                  
 
               </div>
                   
