@@ -30,7 +30,7 @@
 
                        @method('PUT')
 
-                    </div>
+                    
                     <div class="form-group">
                       <label for="exampleInputPassword1">Alter</label>
                       <input type="text" class="form-control{{$errors->has('alter') ? ' is-invalid' : ''}}" id="alter" name="alter" value="{{old('alter') ?? $profile->alter ?? ''}}" placeholder="Wie alt bist du?">
@@ -52,14 +52,17 @@
                           </div>
                         
                           <div class ="text-center">
-                          <button type="submit" class="btn btn-light flankr-button">Profil speichern</button>
-                        </div>
+                            <button type="submit" class="btn btn-light flankr-button">Profil bearbeiten</button>
+                          
+                          </div>
                         
                     </div>
                         
                       </form>
             
-            </div>
+                    </div>
+
+                    </div>
 
        
     </div>

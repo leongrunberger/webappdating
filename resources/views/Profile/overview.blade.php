@@ -43,7 +43,7 @@
                   
               
 
-              <div class="card-header">Geburtstag</div>
+              <div class="card-header">Alter</div>
 
               <div class="card-body">
 
@@ -68,9 +68,10 @@
               </div>
 
 
-                  
+              <div class ="text-center">   
               <a class="btn btn-light flankr-button" href="{{route('profile.edit', $profile->id)}}" role="button">Profil bearbeiten</a>
               <a class="btn btn-light flankr-button" href="{{route('profile.delete', $profile->id)}}" role="button">Profil löschen</a>
+              </div>
               @break
               @endif
               @endforeach
