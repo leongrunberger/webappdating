@@ -47,5 +47,45 @@ class UserTableSeeder extends Seeder
       $premium->save();
       $premium->roles()->attach($role_premium);
 
+      $tim = new User();
+      $tim->name='Tim';
+      $tim->email='tim@email.de';
+      $tim->password = bcrypt('12345678');
+      $tim->date ='1996-02-02';
+      $tim->ogender='M';
+      $tim->lgender='F';
+      $tim->save();
+      $tim->roles()->attach($role_user);
+
+      $leonie = new User();
+      $leonie->name='Leonie';
+      $leonie->email='leonie@email.de';
+      $leonie->password = bcrypt('12345678');
+      $leonie->date ='1996-02-02';
+      $leonie->ogender='F';
+      $leonie->lgender='M';
+      $leonie->save();
+      $leonie->roles()->attach($role_user);
+
+      $marina = new User();
+      $marina->name='Marina';
+      $marina->email='marina@email.de';
+      $marina->password = bcrypt('12345678');
+      $marina->date ='1996-02-02';
+      $marina->ogender='F';
+      $marina->lgender='M';
+      $marina->save();
+      $marina->roles()->attach($role_user);
+
+      $pasquale = new User();
+      $pasquale->name='Pasquale';
+      $pasquale->email='pasquale@email.de';
+      $pasquale->password = bcrypt('12345678');
+      $pasquale->date ='1996-02-02';
+      $pasquale->ogender='M';
+      $pasquale->lgender='F';
+      $pasquale->save();
+      $pasquale->roles()->attach($role_user);
+
     }
 }
