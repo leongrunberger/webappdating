@@ -14,14 +14,18 @@ class ProfileTableSeeder extends Seeder
     public function run()
     {
       
-      $profile = new Profile();
-      $profile->name='admin';
-      $profile->alter='12';
-      $profile->wohnort = 'Berlin';
-      $profile->beschreibung='hallo';
-      $profile->ogender='T';
-      $profile->lgender='T';
-      $profile->song='T';
-      $profile->save();
+      $profile_first = new Profile();
+     
+      $profile_first->name='admin';
+      $profile_first->user_id='0';
+      $profile_first->id='0';
+      $profile_first->alter='12';
+      $profile_first->wohnort = 'Berlin';
+      $profile_first->beschreibung='hallo';
+      $profile_first->ogender='T';
+      $profile_first->lgender='T';
+      $profile_first->song='T';
+      $profile_first->erstellt='1';
+      $profile_first->save();
     }
 }

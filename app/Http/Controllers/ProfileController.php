@@ -6,6 +6,7 @@ use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -14,9 +15,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index(Profile $profile, User $user)
     {
-        return view('profile.overview', compact('user'));
+       
+       
+        return view('profile.overview', compact('profile', 'user'));
     }
 
     /**
@@ -24,9 +27,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Profile $profile)
     {
-        return view('profile.create');
+        return view('profile.create', compact('profile'));
     }
 
     /**
@@ -35,18 +38,21 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Profile $profile, User $user)
     {
+       
         $data = $request->validate([
              'alter' => 'required',
             // 'user_id' => 'required|exists:users,id',
              'beschreibung' => 'nullable',
              'wohnort' => 'nullable',
              'song' => 'nullable'
+             
         ]);
        
-       
+       $data['erstellt'] = $profile->erstellt + '1';
        $data['user_id'] = Auth::user()->id;
+       
        $data['name'] = Auth::user()->name;
        $data['ogender'] = Auth::user()->ogender;
        $data['lgender'] = Auth::user()->lgender;
@@ -54,6 +60,9 @@ class ProfileController extends Controller
 
         $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
         return redirect(route('profile.index'));
+
+    
+        
         
     }
 
@@ -79,9 +88,9 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Profile $profile)
     {
-        return view('profile.edit', compact('user'));
+        return view('profile.edit', compact('profile'));
     }
 
     /**
@@ -91,7 +100,7 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(Profile $profile)
     {
        $data = $this->validate(request(), [
         
@@ -102,7 +111,7 @@ class ProfileController extends Controller
 
        ]); 
 
-       $user->update(request()->except('_token'));
+       $profile->update(request()->except('_token'));
        session()->flash('message', 'Profil erfolgreich bearbeitet');
        return redirect(route('profile.index'));
     }

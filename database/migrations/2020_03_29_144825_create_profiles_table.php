@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateProfilesTable extends Migration
 {
     /**
@@ -23,6 +24,7 @@ class CreateProfilesTable extends Migration
             $table->string('song')->nullable();
             $table->string('ogender');
             $table->string('lgender');
+            
             
 
             $table->timestamps();

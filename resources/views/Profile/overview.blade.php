@@ -1,4 +1,4 @@
-@extends('layouts.profil')
+@extends('layouts.app')
 
 @section('content')
 
@@ -15,8 +15,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Hey {{Auth::user()->name}}! Willkommen auf deinem Profil!</div>
+            <div class="card mt-4 flankr-profile-card">
+                <div class="card-header">
+                    <div class ="text-center">Hey {{Auth::user()->name}}! Willkommen auf deinem Profil!</div>
 
                 <div class="card-body">
 
@@ -26,15 +27,17 @@
                   </div>
               @endif
               
-              @foreach ($user->all() as $user)
-                    
-              @if($user->id == Auth::user()->id)   
+              @foreach ($profile->all() as $profile)
+               
+              
+
+              @if($profile->user_id == Auth::user()->id)   
               
               <div class="card-header">Name</div>
 
               <div class="card-body">
                   
-                  {{$user->name}}
+                  {{$profile->name}}
 
               </div>
                   
@@ -44,7 +47,7 @@
 
               <div class="card-body">
 
-                {{$user->date}} 
+                {{$profile->alter}} 
 
               </div>
 
@@ -52,7 +55,7 @@
 
               <div class="card-body">
 
-                {{$user->beschreibung}} 
+                {{$profile->beschreibung}} 
 
               </div>
 
@@ -60,21 +63,29 @@
 
               <div class="card-body">
 
-                {{$user->wohnort}} 
+                {{$profile->wohnort}} 
                    
               </div>
 
 
                   
-              <a class="btn btn-primary" href="{{route('profile.edit', $user->id)}}" role="button">Profil bearbeiten</a>
-              <a class="btn btn-danger" href="{{route('profile.delete', $user->id)}}" role="button">Profil löschen</a>
+              <a class="btn btn-light flankr-button" href="{{route('profile.edit', $profile->id)}}" role="button">Profil bearbeiten</a>
+              <a class="btn btn-light flankr-button" href="{{route('profile.delete', $profile->id)}}" role="button">Profil löschen</a>
               @break
               @endif
               @endforeach
             
-              
-
-                </div>  
+              @foreach ($profile->all() as $profile)
+                    
+              @if($profile->user_id != Auth::user()->id) 
+              <div class ="text-center">
+              <a class="btn btn-light flankr-button" href="{{route('profile.create', $profile->id)}}" role="button">Erstelle dein Profil</a>
+              </div>
+              @break
+              @endif
+              @endforeach 
+            
+            </div>  
                
             </div>
 
