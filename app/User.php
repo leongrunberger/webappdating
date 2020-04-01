@@ -61,6 +61,6 @@ class User extends Authenticatable
     }
 
     public function profiles(){
-        return $this->hasMany(Profile::class);
+        return $this->hasOne("App\Profile");
     }
 }

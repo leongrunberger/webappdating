@@ -104,7 +104,7 @@ class ProfileController extends Controller
     {
        $data = $this->validate(request(), [
         
-        
+         'alter' =>'required',
          'beschreibung' => 'nullable',
          'wohnort' => 'nullable',
          'song' => 'nullable'
