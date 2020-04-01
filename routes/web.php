@@ -21,8 +21,11 @@ Route::get('/start', 'StartController@index')->name('start.index');
 
 Route::get('/profil', 'ProfilController@index')->name('profil.index');
 
-Route::get('/chat', 'ChatController@getMessage')->name('message.index');
+Route::get('/chat{
+    user_id}', 'ChatController@getMessage')->name('message.index');
 
+// Marius hinzugefügt zum testen
+Route::get('/chats', 'ChatController@index')->name('chat.index');
 
 
 Route::resources([
