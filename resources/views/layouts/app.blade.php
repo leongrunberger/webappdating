@@ -36,7 +36,7 @@
         }
 
         .user-wrapper {
-            height: 536px;
+            height: 600px;
         }
 
         .user {
@@ -54,6 +54,7 @@
         }
 
         .pending {
+            position: absolute;
             left: 13px;
             top: 9px;
             background: #b600ff;
@@ -95,7 +96,7 @@
         }
 
         .received, .sent {
-            width: 45%
+            width: 45%;
             padding: 3px 10px;
             border-radius: 10px;
         }
@@ -122,8 +123,8 @@
         .active {
             background: #eeeeee;
         }
-         
-        input [type=text] {
+
+        input[type=text] {
             width: 100%;
             padding: 12px 20px;
             margin: 15px 0 0 0;
@@ -134,9 +135,10 @@
             border: 1px solid #cccccc;
         }
 
-        input [type=text]:focus {
+        input[type=text]:focus {
             border: 1px solid #aaaaaa;
         }
+       
         
         
     </style>
