@@ -45,41 +45,46 @@ class ProfileController extends Controller
     {
        
         $data = $request->validate([
-             'alter' => 'required',
-            // 'user_id' => 'required|exists:users,id',
-             'beschreibung' => 'nullable',
-             'wohnort' => 'nullable',
-             'song' => 'nullable',
-             'profile_image' =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'alter' =>'required',
+            'beschreibung' => 'nullable',
+            'wohnort' => 'nullable',
+            'song' => 'nullable',
+            'profile_image' =>  'required|image|mimes:jpeg|max:2048'
         ]);
-       
-       
-       $data['user_id'] = Auth::user()->id;
-       $data['name'] = Auth::user()->name;
-       $data['ogender'] = Auth::user()->ogender;
-       $data['lgender'] = Auth::user()->lgender;
-       Profile::create($data);
-      
-       $profile = Profile::findOrFail($profile->id);
-       
-
-        // Check if a profile image has been uploaded
-        if ($request->has('profile_image')) {
-            // Get image file
+        
+        if($request->has('profile_image')){
+            
+            //Bekomme das File
             $image = $request->file('profile_image');
+           
+            // Hole Dateiname mit Endung
+            $filenameWithExt = $request->file('profile_image')->getClientOriginalName();
 
-            $extension = $image->getClientOriginalExtension();
-            // Make a image name based on user name and current timestamp
-            $filename = time() . '.' . $extension;
+            // Hole nur Dateiname
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $image->move('uploads/profile' , $filename);
+            // Hole nur Endung
+            $extension = $request->file('profile_image')->getClientOriginalExtension();
 
-            $profile->profile_image = $filename;
-        }else{
-            return $request;
-            $profile->profile_image = '';
-        }
-        // Persist user record to database
+            // Dateiname zum Speichern
+            $filenameToStore=$filename.'_'.time().'.'.$extension;
+
+            // Datei hochladen
+            $image->move('uploads/profile' , $filenameToStore);
+
+        } 
+       
+        $profile = new Profile;
+        
+        $profile->alter = $request->input('alter');
+        $profile->song = $request->input('song');
+        $profile->wohnort = $request->input('wohnort');
+        $profile->beschreibung = $request->input('beschreibung');
+        $profile->profile_image = $filenameToStore;
+        $profile->user_id = Auth::user()->id;
+        $profile->ogender = Auth::user()->ogender;
+        $profile->lgender = Auth::user()->lgender;
+        $profile->name = Auth::user()->name;
         $profile->save();
 
         $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
@@ -132,30 +137,41 @@ class ProfileController extends Controller
          'beschreibung' => 'nullable',
          'wohnort' => 'nullable',
          'song' => 'nullable',
-         'profile_image' =>  'required|image|mimes:jpg|max:2048'
+         'profile_image' =>  'required|image|mimes:jpeg|max:2048'
 
        ]); 
 
-       $profile = Profile::findOrFail($profile->id);
+       
        
 
         // Check if a profile image has been uploaded
-        if ($request->has('profile_image')) {
-            // Get image file
+        if($request->has('profile_image')){
+            
+            //Bekomme das File
             $image = $request->file('profile_image');
+           
+            // Hole Dateiname mit Endung
+            $filenameWithExt = $request->file('profile_image')->getClientOriginalName();
 
-            $extension = $image->getClientOriginalExtension();
-            // Make a image name based on user name and current timestamp
-            $filename = Auth::user()->name . Auth::user()->id . '.' . $extension;
+            // Hole nur Dateiname
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $image->move('uploads/profile' , $filename);
+            // Hole nur Endung
+            $extension = $request->file('profile_image')->getClientOriginalExtension();
 
-            $profile->profile_image = $filename;
+            // Dateiname zum Speichern
+            $filenameToStore=$filename.'_'.time().'.'.$extension;
+
+            // Datei hochladen
+            $image->move('uploads/profile' , $filenameToStore);
+
+            
         }else{
             return $request;
             $profile->profile_image = '';
         }
         // Persist user record to database
+        $profile->profile_image = $filenameToStore;
         $profile->save();
 
        $profile->update(request()->except('_token'));

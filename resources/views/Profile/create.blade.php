@@ -58,7 +58,7 @@
                         </div>
                     @endif
 
-                    <form action="{{route('profile.store')}}" method="post">
+                    <form action="{{route('profile.store')}}" method="post" enctype="multipart/form-data">
                        @csrf 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Alter*</label>
@@ -79,6 +79,15 @@
                             <label for="exampleInputPassword1">Lieblingssong</label>
                             <input type="text" class="form-control" id="song" name="song"placeholder="Was hörst du gerade?">
                           </div>
+
+                          <div class="form-group row">
+                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">Dein Profilbild</label>
+                            <div class="col-md-6">
+                                <input id="profile_image" type="file" class="form-control" name="profile_image">
+                                
+                            </div>
+                        </div>
+
                           <div class ="text-center">
                         <button type="submit" class="btn btn-light flankr-button">Profil erstellen</button>
                           </div>
@@ -90,7 +99,7 @@
     </div>
     </div>
 </div>
-
+@break
 @endif
 @endforeach
 @endsection

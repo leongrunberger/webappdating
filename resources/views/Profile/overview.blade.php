@@ -39,7 +39,7 @@
               <div class="card-body">
                   
                   
-                  <img src="{{asset('uploads/profile/' . $profile->name . $profile->user_id .'.jpg' )}}" style="width: 160px; height: 160px; border-radius: 50%;">
+                  <img src="{{asset('uploads/profile/' . $profile->profile_image )}}" style="width: 160px; height: 160px; border-radius: 50%;">
 
               </div>
             </div>
