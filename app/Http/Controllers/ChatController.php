@@ -26,7 +26,7 @@ class ChatController extends Controller
     public function index()
     {
     
-        //select all users except logged in user
+        //alle User auswählen außer die, die gerade eingelogged sind
         $users = User::where('id', '!=', Auth::id())->get();
         return view('Chat.overview', ['users' => $users]);
     }
@@ -35,9 +35,8 @@ class ChatController extends Controller
         return $user_id;
 
         $my_id = Auth::id();
-        //getting all messages for selected user
-        //getting those message which is from = Auth::id() and to = user_id OR from = user_id and to = Auth::id();
-        $messages = Message::where(function ($query) use ($user_id, $my_id) {
+        //Alle Nachrichten von ausgewählten Usern verarbeiten
+                $messages = Message::where(function ($query) use ($user_id, $my_id) {
             $query->where ('from, $my_id')->where('to', $user_id);
         })->orWhere(function ($query) use ($user_id, $my_id) {
             $query->where('from', $user_id)->where('to', $my_id);
