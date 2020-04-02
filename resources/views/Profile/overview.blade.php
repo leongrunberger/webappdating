@@ -33,15 +33,17 @@
 
               @if($profile->user_id == Auth::user()->id)   
               
-              <div class="card-header">Name</div>
+              <div class ="text-center">    
+              <div class="card-header">Dein Profilbild</div>
 
               <div class="card-body">
                   
-                  {{$profile->name}}
                   
+                  <img src="{{asset('uploads/profile/' . $profile->name . $profile->user_id .'.jpg' )}}" style="width: 160px; height: 160px; border-radius: 50%;">
 
               </div>
-                  
+            </div>
+                                
               
 
               <div class="card-header">Alter</div>

@@ -7,12 +7,12 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use App\Traits\UploadTrait;
+
+
 
 class ProfileController extends Controller
 {
-    use UploadTrait;
+ 
     /**
      * Display a listing of the resource.
      *
@@ -49,8 +49,8 @@ class ProfileController extends Controller
             // 'user_id' => 'required|exists:users,id',
              'beschreibung' => 'nullable',
              'wohnort' => 'nullable',
-             'song' => 'nullable'
-             
+             'song' => 'nullable',
+             'profile_image' =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
        
        
@@ -60,7 +60,27 @@ class ProfileController extends Controller
        $data['lgender'] = Auth::user()->lgender;
        Profile::create($data);
       
+       $profile = Profile::findOrFail($profile->id);
        
+
+        // Check if a profile image has been uploaded
+        if ($request->has('profile_image')) {
+            // Get image file
+            $image = $request->file('profile_image');
+
+            $extension = $image->getClientOriginalExtension();
+            // Make a image name based on user name and current timestamp
+            $filename = time() . '.' . $extension;
+
+            $image->move('uploads/profile' , $filename);
+
+            $profile->profile_image = $filename;
+        }else{
+            return $request;
+            $profile->profile_image = '';
+        }
+        // Persist user record to database
+        $profile->save();
 
         $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
         return redirect(route('profile.index'));
@@ -112,7 +132,7 @@ class ProfileController extends Controller
          'beschreibung' => 'nullable',
          'wohnort' => 'nullable',
          'song' => 'nullable',
-         'profile_image' =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+         'profile_image' =>  'required|image|mimes:jpg|max:2048'
 
        ]); 
 
@@ -123,16 +143,17 @@ class ProfileController extends Controller
         if ($request->has('profile_image')) {
             // Get image file
             $image = $request->file('profile_image');
+
+            $extension = $image->getClientOriginalExtension();
             // Make a image name based on user name and current timestamp
-            $name = $name = Str::slug($request->input(Auth::user()->name)).'_'.time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-            $profile->profile_image = $filePath;
+            $filename = Auth::user()->name . Auth::user()->id . '.' . $extension;
+
+            $image->move('uploads/profile' , $filename);
+
+            $profile->profile_image = $filename;
+        }else{
+            return $request;
+            $profile->profile_image = '';
         }
         // Persist user record to database
         $profile->save();
