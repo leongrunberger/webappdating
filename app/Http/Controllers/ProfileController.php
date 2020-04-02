@@ -49,7 +49,7 @@ class ProfileController extends Controller
             'beschreibung' => 'nullable',
             'wohnort' => 'nullable',
             'song' => 'nullable',
-            'profile_image' =>  'required|image|mimes:jpeg|max:2048'
+            'profile_image' =>  'required|image|mimes:jpeg,jpg,gif|max:2048'
         ]);
         
         if($request->has('profile_image')){
@@ -129,52 +129,37 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Profile $profile, Request $request)
+    public function update(Request $request, $id)
     {
-       $data = $this->validate(request(), [
-        
-         'alter' =>'required',
-         'beschreibung' => 'nullable',
-         'wohnort' => 'nullable',
-         'song' => 'nullable',
-         'profile_image' =>  'required|image|mimes:jpeg|max:2048'
+      $profile = Profile::find($id);
 
-       ]); 
+      $profile->alter = $request->input('alter');
+      $profile->beschreibung = $request->input('beschreibung');
+      $profile->wohnort = $request->input('wohnort');
+      $profile->song = $request->input('song');
 
-       
-       
+      if($request->hasfile('profile_image')){
 
-        // Check if a profile image has been uploaded
-        if($request->has('profile_image')){
-            
-            //Bekomme das File
-            $image = $request->file('profile_image');
-           
-            // Hole Dateiname mit Endung
-            $filenameWithExt = $request->file('profile_image')->getClientOriginalName();
+        $image = $request->file('profile_image');
 
-            // Hole nur Dateiname
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $filenameWithExt = $request->file('profile_image')->getClientOriginalName();
 
-            // Hole nur Endung
-            $extension = $request->file('profile_image')->getClientOriginalExtension();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        $extension = $request->file('profile_image')->getClientOriginalExtension();
 
             // Dateiname zum Speichern
-            $filenameToStore=$filename.'_'.time().'.'.$extension;
+        $filenameToStore=$filename.'_'.time().'.'.$extension;
 
-            // Datei hochladen
-            $image->move('uploads/profile' , $filenameToStore);
+        $image->move('uploads/profile' , $filenameToStore);
 
-            
-        }else{
-            return $request;
-            $profile->profile_image = '';
-        }
-        // Persist user record to database
         $profile->profile_image = $filenameToStore;
-        $profile->save();
+      }
 
-       $profile->update(request()->except('_token'));
+      $profile->save();
+
+
+       
        session()->flash('message', 'Profil erfolgreich bearbeitet');
        return redirect(route('profile.index'));
     }
