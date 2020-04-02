@@ -100,7 +100,8 @@
 
 <div class="row justify-content-center mt-5">
     <div class="row">
-        @include('Partials.likinguser')
+        <!-- include partials.likungser --->
+        <!-- buggt aber ------------------->    
     </div>
 </div>
 
