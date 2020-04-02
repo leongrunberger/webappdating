@@ -27,6 +27,8 @@
         </div>
 
         <div class="col-md-8" id="messages">
+            
+        
            
 
         </div>          

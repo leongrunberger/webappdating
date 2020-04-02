@@ -218,11 +218,10 @@
             $(this).addClass('active');
 
             receiver_id = $(this).attr('id');
-            alert(receiver_id);
 
             $.ajax({
                 type: "get",
-                url: "message/" + receiver_id, //need to create this route
+                url: "chat/" + receiver_id, //need to create this route
                 data:"",
                 cache: false,
                 success: function (data) {

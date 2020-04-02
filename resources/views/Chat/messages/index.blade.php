@@ -1,4 +1,4 @@
-<?php
+
 
 <div class="message-wrapper">
     <ul class="message">

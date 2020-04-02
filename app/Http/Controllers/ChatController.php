@@ -32,6 +32,7 @@ class ChatController extends Controller
     }
     
     public function getMessage($user_id) {
+        return $user_id;
 
         $my_id = Auth::id();
         //getting all messages for selected user
@@ -41,7 +42,6 @@ class ChatController extends Controller
         })->orWhere(function ($query) use ($user_id, $my_id) {
             $query->where('from', $user_id)->where('to', $my_id);
         })->get();
-        return view('message', ['messages' => $messages]);
+        return view('messages.index', ['messages' => $messages]); 
     }
 }
-
