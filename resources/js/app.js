@@ -30,3 +30,27 @@ Vue.component('App', require('./components/App.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+$(function () {
+    $('.like').click(function (event){
+    
+        var liked_user_id = $(this).data("userId");
+        
+        $.post(urlLike, { liked_user_id: liked_user_id }).done(function (data) { alert("Hat geklappt!") });
+        
+        /*liked_user_id = event.target.parentNode.parentNode.dataset['liked_user_id'];
+       /* event.preventDefault();
+        var isLike = event.target.previousElementSibling == null;
+        $.ajax({
+            method: 'POST',
+            url: urlLike,
+            data: {isLike: isLike, liked_user_id: liked_user_id, _token: token},
+            success: function () sage dass alles geklappt hat 
+            error: function () zeige fehlermeldung an
+        })
+            .done(function(){
+                // Seitenwechsel
+            })*/
+    });    
+})
+

@@ -7,131 +7,46 @@
             <h1>Deine Beute</h1>
             @if(count($profiles) > 1)
                
-            @if(Auth::user()->lgender == 'M')
-            @foreach($profiles as $profile)
-            @if($profile->ogender =='M')
-                @if($profile->user_id != Auth::user()->id)
-                    <div class="card mt-4 flankr-profile-card">
-                        <div class="card-body text-center">
-
-                            <div class="flankr-profile-card-img">img</div>
-
-                            <!-- avatar
-                            <img src="{{ asset($profile->avatar) }}" alt="" />
-                            -->
-                            
-                            <h4 class="mt-2">
-                                {{$profile->name}}
-                            </h4>
-                            <p>
-                                Sucht {{$profile->lgender}}
-                            </p>
-                            <p>
-                                {{$profile->alter}} Jahre alt
-                            </p>
-                            <p>
-                                {{$profile->wohnort}}
-                            </p>
-                            <p>
-                                {{$profile->beschreibung}}
-                            </p>
-
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-light flankr-button">Dislike</button>
-                                <button type="button" class="btn btn-light flankr-button ml-2">Like</button>
-                            </div>
-
-                        </div>
-                    </div>
-                   @endif
-                    @endif
-                @endforeach
-                    @endif
-
-                    @if(Auth::user()->lgender == 'F')
-            @foreach($profiles as $profile)
-            @if($profile->ogender =='F')
-            @if($profile->user_id != Auth::user()->id)
-                    <div class="card mt-4 flankr-profile-card">
-                        <div class="card-body text-center">
-
-                            <div class="flankr-profile-card-img">img</div>
-
-                            <!-- avatar
-                            <img src="{{ asset($profile->avatar) }}" alt="" />
-                            -->
-                            
-                            <h4 class="mt-2">
-                                {{$profile->name}}
-                            </h4>
-                            <p>
-                                Sucht {{$profile->lgender}}
-                            </p>
-                            <p>
-                                {{$profile->alter}} Jahre alt
-                            </p>
-                            <p>
-                                {{$profile->wohnort}}
-                            </p>
-                            <p>
-                                {{$profile->beschreibung}}
-                            </p>
-
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-light flankr-button">Dislike</button>
-                                <button type="button" class="btn btn-light flankr-button ml-2">Like</button>
-                            </div>
-
-                        </div>
-                    </div>
-                    @endif
-                    @endif
-                @endforeach
-                    @endif
-
-                    @if(Auth::user()->ogender == 'D')
+                @if(Auth::user()->lgender == 'M')
                     @foreach($profiles as $profile)
-                    @if($profile->ogender =='D')
-                    @if($profile->user_id != Auth::user()->id)
-                            <div class="card mt-4 flankr-profile-card">
-                                <div class="card-body text-center">
-        
-                                    <div class="flankr-profile-card-img">img</div>
-        
-                                    <!-- avatar
-                                    <img src="{{ asset($profile->avatar) }}" alt="" />
-                                    -->
-                                    
-                                    <h4 class="mt-2">
-                                        {{$profile->name}}
-                                    </h4>
-                                    <p>
-                                        Sucht {{$profile->lgender}}
-                                    </p>
-                                    <p>
-                                        {{$profile->alter}} Jahre alt
-                                    </p>
-                                    <p>
-                                        {{$profile->wohnort}}
-                                    </p>
-                                    <p>
-                                        {{$profile->beschreibung}}
-                                    </p>
-        
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-light flankr-button">Dislike</button>
-                                        <button type="button" class="btn btn-light flankr-button ml-2">Like</button>
-                                    </div>
-        
-                                </div>
-                            </div>
-                           @endif
+                        @if($profile->ogender =='M')
+                            @if($profile->user_id != Auth::user()->id)
+                            
+                                @include('Partials.usercard')
+
                             @endif
-                        @endforeach
-                            @endif
-                @else
-                    <p>Keine Beute verfügbar.</p>
+                        @endif
+                    @endforeach
                 @endif
+               
+                @if(Auth::user()->lgender == 'F')
+                    @foreach($profiles as $profile)
+                        @if($profile->ogender =='F')
+                            @if($profile->user_id != Auth::user()->id)
+                            
+                                @include('Partials.usercard')
+
+                            @endif
+                        @endif
+                    @endforeach
+                @endif
+               
+                @if(Auth::user()->lgender == 'D')
+                    @foreach($profiles as $profile)
+                        @if($profile->ogender =='D')
+                            @if($profile->user_id != Auth::user()->id)
+                            
+                                @include('Partials.usercard')
+
+                            @endif
+                        @endif
+                    @endforeach
+                @endif
+
+
+            @else
+                <p>Keine Beute verfügbar.</p>
+            @endif
 
         </div>
     </div>
@@ -140,3 +55,7 @@
 
 
 @endsection
+
+<script>
+    var urlLike = '{{ route('like') }}';
+</script>

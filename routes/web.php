@@ -37,3 +37,7 @@ Route::resources([
 
 
 Route::get('/profile/delete/{profile}', 'ProfileController@delete')->name('profile.delete');
+
+// PK 01.04.20
+Route::post('/like', 'LikeController@index')->name('like');
+
