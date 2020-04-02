@@ -41,9 +41,3 @@ Route::get('/profile/delete/{profile}', 'ProfileController@delete')->name('profi
 // PK 01.04.20
 Route::post('/like', 'LikeController@index')->name('like');
 
-
-// PK 02.04.20
-Route::resources([
-    'like' => 'LikeController'
-
-]);
