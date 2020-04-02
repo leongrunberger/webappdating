@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,6 @@ class ProfileController extends Controller
      */
     public function index(Profile $profile, User $user)
     {
-       
-       
         return view('profile.overview', compact('profile', 'user'));
     }
 
@@ -89,10 +88,6 @@ class ProfileController extends Controller
 
         $request->session()->flash('message', 'Profil erstellt, jetzt gehts auf Beutefang!');
         return redirect(route('profile.index'));
-
-    
-        
-        
     }
 
     /**
