@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <h1>Deine Beute</h1>
             @if(count($profiles) > 1)
                
@@ -58,4 +58,5 @@
 
 <script>
     var urlLike = '{{ route('like') }}';
+    
 </script>

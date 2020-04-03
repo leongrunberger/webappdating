@@ -49689,6 +49689,19 @@ Vue.component('App', __webpack_require__(/*! ./components/App.vue */ "./resource
 var app = new Vue({
   el: '#app'
 });
+$(function () {
+  $('.like').click(function (event) {
+    var liked_user_id = $(this).data("userId");
+    $.post(urlLike, {
+      liked_user_id: liked_user_id
+    }).done(function (data) {
+      alert("Like!");
+    });
+    var id = this.id;
+    $("#" + id).toggle("slide");
+    console.log(id);
+  });
+});
 
 /***/ }),
 

@@ -233,6 +233,14 @@
         });
     });
 
+    $(function(){    
+        $('.dislike').click(function () {
+            var id = this.id;
+            $("#"+id).toggle( "slide" );
+            console.log (id);
+        });
+    });
+
 </script>
 
 

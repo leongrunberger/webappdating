@@ -20,22 +20,26 @@ body {
 //
 
 .flankr-profile-card {
-    height: 80vh;
+    height: auto;
     background-color: $grey-20;
     color: $grey-70;
     box-shadow: 0 0 8px $grey-20;
-    
+    padding: 0 0 0 0;
+    z-index: 50;
 }
 
-.flankr-profile-card-img {
+
+.flankr-profile-card-avatar {
     display: inline-block;
     width: 100%;
-
-    // platzhalter-styles
-    background-color: #555;
-    height: 400px;
+    height: auto;
+    z-index: 75;
 }
 
+.flankr-profile-card-text {
+    bottom: 0;
+    z-index: 100;
+}
 
 //
 // Buttons
@@ -81,5 +85,16 @@ body {
 
 .flankr-grey-20-bg {
     background-color: $grey-20 !important;
+}
+
+//
+// Sonstiges
+//
+
+.verschwindibus {
+    height: 0px !important;
+    opacity: 0;
+    transition: .3s;
+    margin-left: 2000px;
 }
 
