@@ -146,7 +146,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm flankr-bg">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm flankr-bg">
             <div class="container">
                 <a class="navbar-brand flankr-grey-70" href="{{ url('/') }}">
                     {{ config('app.name', 'Flankr') }}
