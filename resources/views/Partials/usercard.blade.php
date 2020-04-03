@@ -2,7 +2,7 @@
     <div class="card mt-4 flankr-profile-card">
         <div class="card-body text-center">
 
-            <img src="{{asset('uploads/profile/' . $profile->profile_image )}}" class="flankr-profile-card-avatar">
+            <img src="{{asset('uploads/profile/' . $profile->profile_image )}}" class="flankr-profile-card-avatar" style="width: 250px; height: 250px;">
 
             <div class="flankr-profile-card-text">
                 <h3 class="mt-2">
