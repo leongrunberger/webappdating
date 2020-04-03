@@ -69,6 +69,15 @@
                 </p>
               </div>
 
+              <div class="card-body">
+                <h3 class="card-title mb-0">Lieblingssong</h3>
+                <p class="card-body">
+
+                    {{$profile->song}} 
+
+                </p>
+              </div>
+
               <div class ="text-center">   
               <a class="btn btn-light flankr-button" href="{{route('profile.edit', $profile->id)}}" role="button">Profil bearbeiten</a>
               <a class="btn btn-light flankr-button" href="{{route('profile.delete', $profile->id)}}" role="button">Profil löschen</a>

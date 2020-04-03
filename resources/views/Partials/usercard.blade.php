@@ -12,6 +12,7 @@
                     <li>{{$profile->alter}} Jahre alt</li>
                     <li>{{$profile->wohnort}}</li>
                     <li>{{$profile->beschreibung}}</li>
+                    <li>{{$profile->song}}</li>
                 </ul>
             </div>
             
