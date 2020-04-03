@@ -72,15 +72,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="wohnort" class="col-md-4 col-form-label text-md-right">{{ __('Wohnort') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="wohnort" type="text" class="form-control" name="wohnort" value="{{ old('wohnort') }}" required autocomplete="wohnort">
-
-                            </div>
-                        </div>
-
+                       
                         
 
                         <div class="form-group row">
