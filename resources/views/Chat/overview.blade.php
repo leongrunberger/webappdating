@@ -7,6 +7,7 @@
                 <div class="user-wrapper">
                     <ul class="users">
                         @foreach($users as $user)
+                        @if($user->id > 3)
                             <li class="user" id="{{ $user->id }}">
                                 {{--ungelesene Nachrichten anzeigen--}}
                                 @if($user->unread)
@@ -24,6 +25,7 @@
                                     </div>
                                 </div>
                             </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
