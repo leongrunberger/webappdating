@@ -17,7 +17,7 @@
         <div class="col-md-8">
             <div class="card mt-4 flankr-profile-card">
                 <div class="card-header">
-                    <div class ="text-center">Hey {{Auth::user()->name}}! Willkommen auf deinem Profil!</div>
+                    <div class ="text-center mt-3">Hey {{Auth::user()->name}}! Willkommen auf deinem Profil!</div>
 
                 <div class="card-body">
 
@@ -34,42 +34,40 @@
               @if($profile->user_id == Auth::user()->id)   
               
               <div class ="text-center">    
-              <div class="card-header">Dein Profilbild</div>
+              <h3 class="card-title">Dein Profilbild</h3>
 
               <div class="card-body">
-                  
-                  
                   <img src="{{asset('uploads/profile/' . $profile->profile_image )}}" style="width: 160px; height: 160px; border-radius: 50%;">
 
               </div>
             </div>
                                 
+              <div class="card-body">
+                <h3 class="card-title mb-0">Alter</h3>
+                <p class="card-body">
+
+                    {{$profile->alter}} 
+
+                </p>
+              </div>
               
-
-              <div class="card-header">Alter</div>
-
               <div class="card-body">
+                <h3 class="card-title mb-0">Beschreibung</h3>
+                <p class="card-body">
 
-                {{$profile->alter}} 
+                    {{$profile->beschreibung}} 
 
+                </p>
               </div>
 
-              <div class="card-header">Beschreibung</div>
-
               <div class="card-body">
+                <h3 class="card-title mb-0">Wohnort</h3>
+                <p class="card-body">
 
-                {{$profile->beschreibung}} 
+                    {{$profile->wohnort}} 
 
+                </p>
               </div>
-
-              <div class="card-header">Wohnort</div>
-
-              <div class="card-body">
-
-                {{$profile->wohnort}} 
-                   
-              </div>
-
 
               <div class ="text-center">   
               <a class="btn btn-light flankr-button" href="{{route('profile.edit', $profile->id)}}" role="button">Profil bearbeiten</a>
@@ -83,7 +81,7 @@
                     
               @if($profile->user_id != Auth::user()->id) 
               <div class ="text-center">
-              <a class="btn btn-light flankr-button" href="{{route('profile.create', $profile->id)}}" role="button">Erstelle dein Profil</a>
+              <a class="btn btn-light flankr-button m-3" href="{{route('profile.create', $profile->id)}}" role="button">Erstelle dein Profil</a>
               </div>
               @break
               @endif
