@@ -106,9 +106,10 @@
         }
 
         .sent {
-            background: #3bebff;
+            background: #e627a3;
             float: right;
             text-align: right;
+            
         }
 
         .message p {
