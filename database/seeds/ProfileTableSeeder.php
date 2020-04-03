@@ -24,12 +24,12 @@ class ProfileTableSeeder extends Seeder
       $profile_first->ogender='T';
       $profile_first->lgender='T';
       $profile_first->song='T';
-       $profile_first->save();
+      $profile_first->save();
 
        $profile_tim = new Profile();
        $profile_tim->name='Tim';
        $profile_tim->user_id='4';
-       
+       $profile_tim->profile_image ='tim_1585908582.jpg';
        $profile_tim->alter='19';
        $profile_tim->wohnort = 'Stuttgart';
        $profile_tim->beschreibung='Ich bin Tim';
@@ -38,22 +38,10 @@ class ProfileTableSeeder extends Seeder
        $profile_tim->song='Rihanna - Umbrella';
         $profile_tim->save();
 
-        $profile_pasquale = new Profile();
-        $profile_pasquale->name='Pasquale';
-        $profile_pasquale->user_id='7';
-        
-        $profile_pasquale->alter='25';
-        $profile_pasquale->wohnort = 'Würzburg';
-        $profile_pasquale->beschreibung='Ich bin Pasquale';
-        $profile_pasquale->ogender='M';
-        $profile_pasquale->lgender='F';
-        $profile_pasquale->song='Kollegah - AKs im Wandschrank';
-        $profile_pasquale->save();
-
-         $profile_leonie = new Profile();
+        $profile_leonie = new Profile();
          $profile_leonie->name='Leonie';
          $profile_leonie->user_id='5';
-        
+         $profile_leonie->profile_image ='leonie_1585908567.jpeg';
          $profile_leonie->alter='24';
          $profile_leonie->wohnort = 'Heidelberg';
          $profile_leonie->beschreibung='Ich bin Leonie';
@@ -62,16 +50,32 @@ class ProfileTableSeeder extends Seeder
          $profile_leonie->song='Symba - Angels Sippen';
          $profile_leonie->save();
 
-          $profile_marina = new Profile();
-          $profile_marina->name='Marina';
-          $profile_marina->user_id='6';
+         $profile_marina = new Profile();
+         $profile_marina->name='Marina';
+         $profile_marina->user_id='6';
+         $profile_marina->profile_image ='marina_1585865703.jpg';
+         $profile_marina->alter='20';
+         $profile_marina->wohnort = 'Karlsruhe';
+         $profile_marina->beschreibung='Ich bin Leonie';
+         $profile_marina->ogender='F';
+         $profile_marina->lgender='M';
+         $profile_marina->song='Leona Lewis - Bleeding Love';
+         $profile_marina->save();
+
+        $profile_pasquale = new Profile();
+        $profile_pasquale->name='Pasquale';
+        $profile_pasquale->user_id='7';
+        $profile_pasquale->profile_image ='pasquale_1585908642.jpg';
+        $profile_pasquale->alter='25';
+        $profile_pasquale->wohnort = 'Würzburg';
+        $profile_pasquale->beschreibung='Ich bin Pasquale';
+        $profile_pasquale->ogender='M';
+        $profile_pasquale->lgender='F';
+        $profile_pasquale->song='Kollegah - AKs im Wandschrank';
+        $profile_pasquale->save();
+
+
+
          
-          $profile_marina->alter='20';
-          $profile_marina->wohnort = 'Karlsruhe';
-          $profile_marina->beschreibung='Ich bin Leonie';
-          $profile_marina->ogender='F';
-          $profile_marina->lgender='M';
-          $profile_marina->song='Leona Lewis - Bleeding Love';
-          $profile_marina->save();
     }
 }
